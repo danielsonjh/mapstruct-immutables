@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'a'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_10
+targetCompatibility = JavaVersion.VERSION_1_10
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    immutablesVersion = "2.6.3"
+    mapstructVersion = "1.3.0.Beta1"
+}
+
+dependencies {
+    annotationProcessor "org.immutables:value:$rootProject.immutablesVersion"
+    annotationProcessor "org.mapstruct:mapstruct-processor:$rootProject.mapstructVersion"
+    compileOnly "org.immutables:builder:$rootProject.immutablesVersion"
+    compileOnly "org.immutables:value:$rootProject.immutablesVersion:annotations"
+    compileOnly "org.mapstruct:mapstruct-jdk8:$rootProject.mapstructVersion"
+}
